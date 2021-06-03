@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+ <div class="container">
+        <h1 class="logo">Welcome to Diabetes Prediction</h1>
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+
+    <style>
+body{
+background-image: url("/static/Untitled.png");            
+
+            background-repeat: no-repeat;
+            background-size: 100% 206%;
+        }
+        
+        #btn{
+            height: 30px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            font-size: 18px;
+        }
+        #btn:hover{
+            background-color: white
+        }
+        hr{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body background="C:\Users\Prashant Mourya\Downloads\Diabetes_Prediction_Portal-master\templates\Untitled.png">
+
+<form action="/predict" method="post">
+    <center><label>Enter BMI(Body Mass Index):   </label><input type="text" name="bmi" placeholder="BMI(Body Mass Index)" required><br></center>
+    <center><label>Enter BP(Body Pressure):   </label><input type="text" name="bp" placeholder="BP(Blood Pressure)" required><br></center>
+    <center><label>Enter Glucose Level:    </label><input type="text" name="glucose" placeholder="Glucose" required><br>
+    <center><label>Enter Insulin Level:</label><input type="text" name="insulin" placeholder="Insulin Level" required><br><br></center>
+    <center><input type="submit" value="Submit" id="btn"></center>
+</form><br>
+<main><p><marquee><b>Note: </b><i>
+    A BMI of 25.0 or more is overweight, while the healthy range is 18.5 to 24.9. BMI applies to most adults 18-65 years.</i></marquee></p></main><br>
+
+{% if msg=="Success" %}
+<hr/>
+    <center><h1>Your Result:</h1><strong><i>Positive!! You have diabetes</i></strong></center>
+{% endif %}
+{% if msg=="Unsuccess"  %}
+<hr/>
+   <center><h2>Your Result:</h2><strong><i>Negative!! You do not have diabetes<br>Probability that you will have diabetes in future:{{ prob }}&percnt;</i></strong></center><br>
+
+
+{% endif %}
+</body>
+</html>
+
